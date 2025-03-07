@@ -1,0 +1,48 @@
+<div class="bg-gray-100 flex items-center justify-center h-[595px]">
+        <div class="flex flex-col items-center">
+            <div class="flex justify-center space-x-6 mb-6">
+                <img src="https://randomuser.me/api/portraits/men/1.jpg" class="w-14 h-14 rounded-full border-2 cursor-pointer transition-all hover:scale-110" onclick="changeTestimonial(0, 'left')">
+                <img src="https://randomuser.me/api/portraits/women/2.jpg" class="w-14 h-14 rounded-full border-2 cursor-pointer transition-all hover:scale-110" onclick="changeTestimonial(1, 'right')">
+                <img src="https://randomuser.me/api/portraits/men/3.jpg" class="w-14 h-14 rounded-full border-2 cursor-pointer transition-all hover:scale-110" onclick="changeTestimonial(2, 'left')">
+                <img src="https://randomuser.me/api/portraits/women/4.jpg" class="w-14 h-14 rounded-full border-2 cursor-pointer transition-all hover:scale-110" onclick="changeTestimonial(3, 'right')">
+            </div>
+            <div id="testimonial-container" class="w-[945px] bg-white shadow-lg  relative text-center px-[95px] py-[25px]">
+                <p id="testimonial-text" class="text-[#8fa6bc] italic text-[22px] timesNewRoman">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore tempor incididun dolore tempor magna </p>
+                <h3 id="testimonial-name" class="mt-4 font-semibold text-sm text-gray-900">Andry Lincoln</h3>
+                <div id="testimonial-rating" class="w-full flex justify-center items-center">
+                    <hr class="w-full h-[1px] bg-[#f0f3f5]">
+                    <div class="flex justify-center mx-4 text-sm text-yellow-500 gap-1">
+                        <i class="fa-solid fa-star text-[#ffea00]"></i>
+                        <i class="fa-solid fa-star text-[#ffea00]"></i>
+                        <i class="fa-solid fa-star text-[#ffea00]"></i>
+                        <i class="fa-solid fa-star text-[#ffea00]"></i>
+                        <i class="fa-solid fa-star text-[#ffea00]"></i>
+                    </div>
+                    <hr class="w-full h-[1px] bg-[#f0f3f5]">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const testimonials = [
+            { text: "Andry Lincoln, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore tempor incididun dolore tempor ", name: "Andry Lincoln", rating: "⭐⭐⭐⭐⭐" },
+            { text: "Sarah Johnson, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore tempor incididun dolore tempor", name: "Sarah Johnson", rating: "⭐⭐⭐⭐" },
+            { text: "Sarah Johnson, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore tempor incididun dolore tempor", name: "Sarah Johnson", rating: "⭐⭐⭐⭐⭐" },
+            { text: "Emily Davis, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore tempor incididun dolore tempor", name: "Emily Davis", rating: "⭐⭐⭐⭐" }
+        ];
+
+        function changeTestimonial(index, direction) {
+            const container = document.getElementById("testimonial-container");
+            const textElement = document.getElementById("testimonial-text");
+            
+            container.classList.remove("slide-in-left");
+            textElement.classList.remove("fade-in-left", "fade-in-right");
+            
+            setTimeout(() => {
+                textElement.textContent = testimonials[index].text;
+                
+                container.classList.add("slide-in-left");
+                textElement.classList.add(direction === 'left' ? "fade-in-left" : "fade-in-right");
+            }, 20);
+        }
+    </script>
